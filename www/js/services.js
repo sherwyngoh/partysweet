@@ -8,7 +8,7 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var events = [
-    {id: 0, title: "Party Apocalypso", description: "Amazing party", location: "Clark Quay", img: "img/test.jpg"},
+    {id: 0, title: "Party Apocalypso", description: "Amazing party", location: "Clark Quay", img: "img/1.jpg"},
     {id: 1, title: "Masquerade Exotica", description: "Mind blowing party", location: "Orchard Road", img: "img/2.jpg"},
     {id: 2, title: "Chillennium", description: "Cool blue", location: "M Hotel", img: "img/3.jpg"},
     {id: 3, title: "Vodka Tsunami", description: "Whooosh", location: "Carlton Hotel", img: "img/1.jpg"},
