@@ -22,7 +22,12 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('EventCtrl', function($scope, Events, $stateParams, $ionicPopup) {
+.controller('EventCtrl', function($scope, Events, $stateParams, $ionicPopup, $state) {
+    
+  $scope.goToEvents = function() {
+    $state.go('events')
+  }
+
   Events.then(function(result) {
     $scope.events = result["parties"]
     angular.forEach($scope.events, function(value,key){
