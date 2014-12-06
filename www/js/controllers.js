@@ -102,7 +102,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactsCtrl', function($scope, $state, Contacts) {
-  $scope.contacts =  JSON.parse(window.localStorage['contacts']) || Contacts.all()
+  $scope.contacts =  typeof(window.localStorage['contacts']) !== 'undefined' ? JSON.parse(window.localStorage['contacts']) : Contacts.all()
 
   $scope.saveContacts = function(contacts) {
     console.log(contacts)
