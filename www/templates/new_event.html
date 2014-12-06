@@ -6,17 +6,21 @@
     <div class="list">
       <label class="item item-input item-floating-label">
         <span class="input-label">Event Title</span>
-        <input type="text" placeholder="Event Title">
+        <input type="text" placeholder="Event Title" ng-model="event.title">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Description</span>
-        <input type="text" placeholder="Description">
+        <input type="text" placeholder="Description" ng-model="event.description">
       </label>
     </div>
 
   <div class='btn-container'>
-    <button class="button button-block button-positive" ng-click='contacts()' >
-      Create Event
+    <button class="button button-block button-positive" ng-click='contacts()'>
+      Add contacts
+    </button>
+
+    <button class="button button-block button-positive" ng-click='createEvent(event)'>
+      Create event
     </button>
   </div>
 </ion-content>

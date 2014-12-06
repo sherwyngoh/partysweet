@@ -26,6 +26,12 @@ angular.module('starter.controllers', [])
 	$scope.contacts = function(){
     $state.go('newEvent.contacts')  
   }
+	$scope.event = {}
+
+	$scope.createEvent = function(event){
+		window.localStorage['event'] = JSON.stringify(event)
+		console.log(window.localStorage['event'])
+	}
 
 })
 
