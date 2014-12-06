@@ -108,6 +108,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       controller: "NewPackingListCtrl"
     })
 
+    .state('summary', {
+      url: '/summary',
+      templateUrl: "templates/summary.html",
+      controller: "SummaryCtrl"
+    })
+
     .state('tab.messages', {
       url: 'event/:eventId/messages',
       views: {

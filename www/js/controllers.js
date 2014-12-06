@@ -87,7 +87,7 @@ angular.module('starter.controllers', [])
     console.log(contacts)
     window.localStorage['contacts'] = JSON.stringify(contacts)
     console.log(JSON.stringify(contacts))
-    $state.go("newEvent")
+    $state.go("newPackingList")
   }
 
   document.addEventListener("deviceready", onDeviceReady, false);
@@ -102,7 +102,7 @@ angular.module('starter.controllers', [])
 .controller('NewPackingListCtrl', function($scope, $state) {
   $scope.items = JSON.parse(window.localStorage['items'] || "[]")
   $scope.newItem = function() {
-    $scope.items.push({name: "Pizza", quantityPerPax: "1", costPerItem: "1" })  
+    $scope.items.push({})
   }
   
   $scope.showDelete = false
@@ -111,28 +111,25 @@ angular.module('starter.controllers', [])
     $scope.showDelete = !$scope.showDelete
   }
 
-  $scope.$watch("items", function(newVal, oldVal){
-    $scope.totalCost = 0
-    angular.forEach($scope.items, function(value,key){
-      $scope.totalCost += Number(value.costPerItem)
-    })
-    console.log(total)
-  },true)
-
-  // $scope.totalCost = function() {
-  //   var total = 0
-  //   for (var i = 0; i < $scope.items; i++) {
-  //     console.log("running")
-  //     total = total + $scope.items[i][costPerItem]
-  //   }
-  //   return total
-  // }
+  // $scope.$watch("items", function(newVal, oldVal){
+  //   $scope.totalCost = 0
+  //   angular.forEach($scope.items, function(value,key){
+  //     $scope.totalCost += Number(value.costPerItem)
+  //   })
+  // },true)
 
   $scope.saveItems = function(items) {
     window.localStorage['items'] = JSON.stringify(items)
+    $state.go("summary")
   } 
 
-
+  $scope.amountToCharge = 15
+  var contacts = JSON.parse(window.localStorage['contacts'] || {})
+  var invited = contacts.filter( function(item){return (item.checked == true);} );
+  $scope.contactsCount = invited.length
 })
 
+.controller('SummaryCtrl', function($scope, $state) {
+  
+})
 ;
