@@ -2,12 +2,12 @@
 .btn-container{
   margin: 10px;
 }
+
 /*Pink - FF8E8E
 Yellow - FFF585
 Brown - E8B376
 Purple - B476E8
 Blue - 81B8FF*/ 
-
 
 @font-face {
     font-family: 'OilField';
@@ -49,4 +49,3 @@ Blue - 81B8FF*/
     src:url('../lib/ionic/fonts/NexaBold.ttf');
     font-weight: bold;
     font-style: bold;
-}
