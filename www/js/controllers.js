@@ -100,20 +100,27 @@ angular.module('starter.controllers', [])
   $scope.items = JSON.parse(window.localStorage['items'] || "[]")
 
   $scope.newItem = function() {
-    $scope.items.push({name: "Pizza", quantityPerPax: "1", costPerItem: "1", formattedCostPerItem: "$1"})  
+    $scope.items.push({name: "Pizza", quantityPerPax: "1", costPerItem: "1" })  
+  }
+  
+  $scope.showDelete = false
+
+  $scope.showEdit = function(){
+    $scope.showDelete = !$scope.showDelete
   }
 
-  $scope.toggleItem = function(item) {
-    if ($scope.isItemShown(item)) {
-      $scope.shownItem = null;
-    } else {
-      $scope.shownItem = item;
+  $scope.totalCost = function() {
+    var total = 0
+    for (var i = 0; i < $scope.items; i++) {
+      total = total + $scope.items[i][costPerItem]
     }
-  };
-  $scope.isItemShown = function(item) {
-    return $scope.shownItem === item;
-  };
-  
+    return total
+  }
+
+  $scope.saveItems = function(items) {
+    window.localStorage['items'] = JSON.stringify(items)
+  } 
+
 
 })
 
