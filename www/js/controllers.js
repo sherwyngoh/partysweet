@@ -42,16 +42,7 @@ angular.module('starter.controllers', [])
       }
       // console.log(value)
     })
-
-
   })
-  // // $scope.event.packingList = []
-  // // angular.forEach(PackingItems.all(), function(value, key){
-  // //   if (value.eventId == $scope.event.id)
-  // //   {
-  // //     $scope.event.packingList.push(value)
-  // //   }
-  // // })
 })
 
 .controller('AccountCtrl', function($scope) {
