@@ -3,8 +3,11 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('EventsCtrl', function($scope, Events) {
+.controller('EventsCtrl', function($scope, Events, $state) {
   $scope.events = Events.all();
+  $scope.goToEvent = function(eventId) {
+    $state.go('event', {"eventId": eventId} )
+  }
 })
 
 .controller('EventCtrl', function($scope, $stateParams, Events) {
@@ -21,9 +24,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PackingListCtrl', function($scope) {
-  $scope.packingList = [
-    {itemName: "Pizza", QtyPerPerson: 1, PricePerPerson: 10}
-  ]
 })
 
 ;
