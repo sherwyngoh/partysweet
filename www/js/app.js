@@ -132,7 +132,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           controller: 'PackingListCtrl'
         }
       }
-    });
+    })
+
+    .state('payment', {
+      url: 'event/:eventId/payment',
+      templateUrl: 'templates/payment.html',
+      controller: "PaymentCtrl"
+    })
+
+    ;
 
   $urlRouterProvider.otherwise('/events');
 });

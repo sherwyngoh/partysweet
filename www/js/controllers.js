@@ -54,15 +54,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller("NewEventCtrl", function($scope, $ionicModal,$filter,$state){
-  $scope.contacts = JSON.parse(window.localStorage['contacts'] || {})
-  $scope.goToContacts = function(){
-    $state.go('contacts')  
-  }
   $scope.event = {}
-
-  $scope.createEvent = function(event){
+  $scope.contacts = JSON.parse(window.localStorage['contacts'] || {})
+  
+  $scope.goToContacts = function(){
     window.localStorage['newEvent'] = JSON.stringify(event)
-    console.log(window.localStorage['newEvent'])
+    $state.go('contacts')  
   }
 
   $ionicModal.fromTemplateUrl('templates/modal.html', 
@@ -102,7 +99,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactsCtrl', function($scope, $state, Contacts) {
-  $scope.contacts =  JSON.parse(window.localStorage['contacts']) || Contacts.all()
+  $scope.contacts =  typeof(window.localStorage['contacts']) !== 'undefined' ? JSON.parse(window.localStorage['contacts']) : Contacts.all()
 
   $scope.saveContacts = function(contacts) {
     console.log(contacts)
@@ -152,5 +149,9 @@ angular.module('starter.controllers', [])
 
 .controller('SummaryCtrl', function($scope, $state) {
   
+})
+
+.controller('PaymentCtrl', function($scope, $state) {
+  $scope.braintreeToken = "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiIxYjc0NDI3NjkwZTg0ODZiN2I4MzBkMjMxOWUwZTBjMTE5YTM1MDE3ZjBmNjdjNDFlMjNiODAzZmU0YjUzZjNkfGNyZWF0ZWRfYXQ9MjAxNC0xMi0wNlQyMzoxNjowMi4yNDMyMTUwNjQrMDAwMFx1MDAyNm1lcmNoYW50X2lkPXY2eWh0N25tYzhkNm12dzJcdTAwMjZwdWJsaWNfa2V5PTR5dnRzNnluaDZ2d2JzZ3kiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvdjZ5aHQ3bm1jOGQ2bXZ3Mi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwicGF5bWVudEFwcHMiOltdLCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvdjZ5aHQ3bm1jOGQ2bXZ3Mi9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhbmFseXRpY3MiOnsidXJsIjoiaHR0cHM6Ly9jbGllbnQtYW5hbHl0aWNzLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20ifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6ZmFsc2UsInBheXBhbEVuYWJsZWQiOnRydWUsInBheXBhbCI6eyJkaXNwbGF5TmFtZSI6IlBBUlRZU1dFRVQiLCJjbGllbnRJZCI6bnVsbCwicHJpdmFjeVVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS9wcCIsInVzZXJBZ3JlZW1lbnRVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vdG9zIiwiYmFzZVVybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9jaGVja291dC5wYXlwYWwuY29tIiwiZGlyZWN0QmFzZVVybCI6bnVsbCwiYWxsb3dIdHRwIjp0cnVlLCJlbnZpcm9ubWVudE5vTmV0d29yayI6dHJ1ZSwiZW52aXJvbm1lbnQiOiJvZmZsaW5lIiwibWVyY2hhbnRBY2NvdW50SWQiOiI3MnRmeXlja3E2bnhkanI1IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn0sImNvaW5iYXNlRW5hYmxlZCI6ZmFsc2UsIm1lcmNoYW50SWQiOiJ2NnlodDdubWM4ZDZtdncyIiwidmVubW8iOiJvZmYifQ=="
 })
 ;
