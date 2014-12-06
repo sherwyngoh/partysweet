@@ -20,7 +20,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       StatusBar.styleDefault();
     }
   });
-})
+}) 
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -130,4 +130,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   $urlRouterProvider.otherwise('/events');
 });
+
 

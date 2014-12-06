@@ -4,7 +4,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('EventsCtrl', function($scope, Events, $state) {
-  $scope.events = Events.all();
+
+  Events.then(function(result) {
+    $scope.events = result["parties"];
+  })
 
   $scope.goToEvent = function(eventId) {
     $state.go('event', {"eventId": eventId} )
