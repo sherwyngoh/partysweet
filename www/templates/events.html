@@ -3,9 +3,14 @@
     <button class="button button-icon icon ion-plus" ng-click="newEvent()"></button>
   </ion-nav-buttons>
   <ion-content has-header="true" >
-  <ul class="list">
-    <li class="item" ng-repeat="event in events" ng-click="goToEvent({{event.id}})">
-      {{event}}
-    </li>
-	</ul>
+    <div class="list">
+      
+    <a ng-click="goToEvent({{event.id}})" ng-repeat="event in events">
+
+      <div class="image-caption" style='background: url("{{event.img}}"); no-repeat background-size: 100% 100%'>
+      <h2>{{event.title}}</h2>
+      <p>{{event.location}}</p>
+
+    </a>
+  </div>
   </ion-content>
