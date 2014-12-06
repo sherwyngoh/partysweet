@@ -16,27 +16,26 @@ angular.module('starter.controllers', [])
 
 .controller("EventsCtrl", function($scope) {
 	$scope.events = [
-		{title: "Party Apocalypso", description: "Amazing party", location: "Clark Quay"},
-		{title: "Masquerade Exotica", description: "Mind blowing party", location: "Orchard Road"},
-		{title: "Chillennium", description: "Cool blue", location: "M Hotel"},
-		{title: "Vodka Tsunami", description: "Whooosh", location: "Carlton Hotel"},
-		{title: "House Vibrations", description: "mmmmmmmmmm", location: "Carlton Hotel"},
+		{id: 0, title: "Party Apocalypso", description: "Amazing party", location: "Clark Quay"},
+		{id: 1, title: "Masquerade Exotica", description: "Mind blowing party", location: "Orchard Road"},
+		{id: 2, title: "Chillennium", description: "Cool blue", location: "M Hotel"},
+		{id: 3, title: "Vodka Tsunami", description: "Whooosh", location: "Carlton Hotel"},
+		{id: 4, title: "House Vibrations", description: "mmmmmmmmmm", location: "Carlton Hotel"},
 	]
 })
 
 .controller("newEventCtrl", function($scope){
 	
 })
-;
 
 .controller('ContactsCtrl', function($scope){
 
 })
 
 .controller('PackingListCtrl', function($scope) {
+  $scope.packingList = [
+    {itemName: "Pizza", QtyPerPerson: 1, PricePerPerson: 10}
+  ]
 })
-
-
-
 
 ;
