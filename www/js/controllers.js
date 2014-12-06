@@ -90,12 +90,16 @@ angular.module('starter.controllers', [])
    $scope.event.formatted_date = $filter('date')(model, 'fullDate');
  };
   $scope.goToContacts = function(event) {
-    $state.go('newEvent.contacts', {"event": event} )
+    $state.go('contacts', {"event": event} )
   }
 })
 
-.controller('ContactsCtrl', function($scope){
+.controller('ContactsCtrl', function($scope, $cordovaContacts, $state){
 	$scope.event = JSON.parse(window.localStorage['newEvent'] || '{}')
+	$scope.saveContact = function(model){
+	}
+ 	console.log(navigator.contacts);
+
 })
 
 .controller('PackingListCtrl', function($scope) {
