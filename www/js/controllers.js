@@ -97,7 +97,24 @@ angular.module('starter.controllers', [])
 })
 
 .controller('NewPackingListCtrl', function($scope, $state) {
-  $scope.items = JSON.parse(window.localStorage['contacts'] || {})
+  $scope.items = JSON.parse(window.localStorage['items'] || "[]")
+
+  $scope.newItem = function() {
+    $scope.items.push({name: "Pizza", quantityPerPax: "1", costPerItem: "1", formattedCostPerItem: "$1"})  
+  }
+
+  $scope.toggleItem = function(item) {
+    if ($scope.isItemShown(item)) {
+      $scope.shownItem = null;
+    } else {
+      $scope.shownItem = item;
+    }
+  };
+  $scope.isItemShown = function(item) {
+    return $scope.shownItem === item;
+  };
+  
+
 })
 
 ;

@@ -4,7 +4,32 @@
 	    <i class="ion-arrow-left-c"></i> Back
 	  </ion-nav-back-button>
   </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-plus" ng-click="newItem()"></button>
+  </ion-nav-buttons>
 <ion-content has-header="true" >
 	<ion-list>
+		<ion-item class="item-accordion" ng-repeat="item in items" >
+	    <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
+	    </ion-delete-button>
+
+			<label class="item item-input">
+			  <span class="input-label"> Item</span>
+			  <input type="text" ng-model="item.name">
+			</label>
+
+			<label class="item item-input">
+			  <span class="input-label"> {{ item.name + "s" || "Quantity"}} per person </span>
+			  <input type="text" ng-model="item.quantityPerPax">
+			</label>
+
+			<label class="item item-input">
+			  <span class="input-label"> Cost per {{ item.name || "unit"}} </span>
+			  <input type="text" ng-model="item.formattedCostPerItem">
+			</label>
+
+		</ion-item>
+
 	</ion-list>
 </ion-content>
