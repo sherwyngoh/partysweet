@@ -2,3 +2,46 @@
 .btn-container{
   margin: 10px;
 }
+
+
+@font-face {
+    font-family: 'OilField';
+    src:url('../lib/ionic/fonts/OilField.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OilField';
+    src:url('../lib/ionic/fonts/OilFieldBold.otf');
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Champagne';
+    src:url('../lib/ionic/fonts/Champagne.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Champagne';
+    src:url('../lib/ionic/fonts/ChampagneBold.ttf');
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src:url('../lib/ionic/fonts/Nexa.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src:url('../lib/ionic/fonts/NexaBold.ttf');
+    font-weight: bold;
+    font-style: bold;
+}
