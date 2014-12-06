@@ -1,0 +1,11 @@
+.image-caption {
+    height: 300px;
+    width: 100%;
+    color: white;
+    font-family: Helvetica;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+    padding-top: 110px;
+    text-align: center;
+}
