@@ -31,17 +31,17 @@ angular.module('starter.controllers', [])
 
 .controller("NewEventCtrl", function($scope, $ionicModal,$filter,$state){
   $scope.contacts = JSON.parse(window.localStorage['contacts'] || {})
-	$scope.goToContacts = function(){
+  $scope.goToContacts = function(){
     $state.go('contacts')  
   }
-	$scope.event = {}
+  $scope.event = {}
 
-	$scope.createEvent = function(event){
-		window.localStorage['newEvent'] = JSON.stringify(event)
-		console.log(window.localStorage['newEvent'])
-	}
+  $scope.createEvent = function(event){
+    window.localStorage['newEvent'] = JSON.stringify(event)
+    console.log(window.localStorage['newEvent'])
+  }
 
-	$ionicModal.fromTemplateUrl('templates/modal.html', 
+  $ionicModal.fromTemplateUrl('templates/modal.html', 
    function(modal) {
    	$scope.modal = modal;
    },
@@ -51,20 +51,20 @@ angular.module('starter.controllers', [])
    // The animation we want to use for the modal entrance
    animation: 'slide-in-up'
 
-   }
-	);
-
- $ionicModal.fromTemplateUrl('templates/date-modal.html', 
-     function(modal) {
-       	$scope.datemodal = modal;
-     },
-     {
-	     scope: $scope, 
-	     animation: 'slide-in-up'
-     }
+ }
  );
 
- $scope.openDateModal = function() {
+  $ionicModal.fromTemplateUrl('templates/date-modal.html', 
+   function(modal) {
+    $scope.datemodal = modal;
+  },
+  {
+    scope: $scope, 
+    animation: 'slide-in-up'
+  }
+  );
+
+  $scope.openDateModal = function() {
    $scope.datemodal.show();
  };
  $scope.closeDateModal = function(model) {
@@ -72,9 +72,9 @@ angular.module('starter.controllers', [])
    $scope.event.date = model;
    $scope.event.formatted_date = $filter('date')(model, 'fullDate');
  };
-  $scope.goToContacts = function(event) {
-    $state.go('contacts', {"event": event} )
-  }
+ $scope.goToContacts = function(event) {
+  $state.go('contacts', {"event": event} )
+}
 })
 
 .controller('ContactsCtrl', function($scope, $state, Contacts) {
@@ -98,9 +98,8 @@ angular.module('starter.controllers', [])
 
 .controller('NewPackingListCtrl', function($scope, $state) {
   $scope.items = JSON.parse(window.localStorage['items'] || "[]")
-
   $scope.newItem = function() {
-    $scope.items.push({name: "Pizza", quantityPerPax: "1", costPerItem: "1" })  
+    $scope.items.push({})
   }
   
   $scope.showDelete = false
@@ -109,23 +108,25 @@ angular.module('starter.controllers', [])
     $scope.showDelete = !$scope.showDelete
   }
 
-  $scope.totalCost = function() {
-    var total = 0
-    console.log($scope.items)
-    for (var i = 0; i < $scope.items.length; i++) {
-      console.log(total)
-      console.log($scope.items[i])
-      console.log($scope.items[i]['costPerItem'])
-      total = total + $scope.items[i]['costPerItem']
-    }
-    return total
-  }
+  // $scope.$watch("items", function(newVal, oldVal){
+  //   $scope.totalCost = 0
+  //   angular.forEach($scope.items, function(value,key){
+  //     $scope.totalCost += Number(value.costPerItem)
+  //   })
+  // },true)
 
   $scope.saveItems = function(items) {
     window.localStorage['items'] = JSON.stringify(items)
+    $state.go("summary")
   } 
 
-
+  $scope.amountToCharge = 15
+  var contacts = JSON.parse(window.localStorage['contacts'] || {})
+  var invited = contacts.filter( function(item){return (item.checked == true);} );
+  $scope.contactsCount = invited.length
 })
 
+.controller('SummaryCtrl', function($scope, $state) {
+  
+})
 ;
