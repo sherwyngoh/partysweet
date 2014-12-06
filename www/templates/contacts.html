@@ -1,11 +1,17 @@
 <ion-view title="Add Contacts">
-  <ion-nav-buttons side="left">
-  <ion-nav-back-button class="button-clear">
-    <i class="ion-arrow-left-c"></i> Back
-  </ion-nav-back-button>
+	<ion-nav-buttons side="left">
+		<ion-nav-back-button class="button-clear">
+	    <i class="ion-arrow-left-c"></i> Back
+	  </ion-nav-back-button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive" ng-click="saveContacts(contacts)"> Next</button>
   </ion-nav-buttons>
 <ion-content has-header="true" >
- <div class="list">
- {{contacts}}
-  </div>
+	<ion-list>
+	  <ion-checkbox ng-repeat="item in contacts" ng-model="item.checked" ng-checked='item.checked'>
+	    {{item.name}}
+	  </ion-item>
+	</ion-list>
 </ion-content>

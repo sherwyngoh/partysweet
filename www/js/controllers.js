@@ -30,7 +30,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller("NewEventCtrl", function($scope, $ionicModal,$filter,$state){
-	$scope.contacts = function(){
+  $scope.contacts = JSON.parse(window.localStorage['contacts'] || {})
+	$scope.goToContacts = function(){
     $state.go('contacts')  
   }
 	$scope.event = {}
@@ -76,18 +77,27 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ContactsCtrl', function($scope, $state) {
+.controller('ContactsCtrl', function($scope, $state, Contacts) {
+  $scope.contacts =  JSON.parse(window.localStorage['contacts']) || Contacts.all()
+
+  $scope.saveContacts = function(contacts) {
+    console.log(contacts)
+    window.localStorage['contacts'] = JSON.stringify(contacts)
+    console.log(JSON.stringify(contacts))
+    $state.go("newEvent")
+  }
 
   document.addEventListener("deviceready", onDeviceReady, false);
 
   function onDeviceReady() {
+    console.log('lol')
     console.log(navigator.contacts);
     $scope.contacts = navigator.contacts
   }
-
 })
 
-.controller('PackingListCtrl', function($scope) {
+.controller('NewPackingListCtrl', function($scope, $state) {
+  $scope.items = JSON.parse(window.localStorage['contacts'] || {})
 })
 
 ;
