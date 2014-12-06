@@ -84,7 +84,7 @@ angular.module('starter.controllers', [])
     console.log(contacts)
     window.localStorage['contacts'] = JSON.stringify(contacts)
     console.log(JSON.stringify(contacts))
-    $state.go("newEvent")
+    $state.go("newPackingList")
   }
 
   document.addEventListener("deviceready", onDeviceReady, false);
@@ -111,8 +111,12 @@ angular.module('starter.controllers', [])
 
   $scope.totalCost = function() {
     var total = 0
-    for (var i = 0; i < $scope.items; i++) {
-      total = total + $scope.items[i][costPerItem]
+    console.log($scope.items)
+    for (var i = 0; i < $scope.items.length; i++) {
+      console.log(total)
+      console.log($scope.items[i])
+      console.log($scope.items[i]['costPerItem'])
+      total = total + $scope.items[i]['costPerItem']
     }
     return total
   }
