@@ -6,7 +6,11 @@ angular.module('starter.controllers', [])
 .controller('EventsCtrl', function($scope, Events, $state) {
 
   Events.then(function(result) {
-    $scope.events = result["parties"];
+    $scope.events = result["parties"]
+    // angular.forEach(result["parties"], function(value,key){
+    //   var partyEvent = value
+    //   console.log(value.party_users)
+    // })
   })
 
   $scope.goToEvent = function(eventId) {
@@ -18,15 +22,36 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('EventCtrl', function($scope, $stateParams, Events, PackingItems, $ionicPopup) {
-  $scope.event = Events.get($stateParams.eventId);
-  $scope.event.packingList = []
-  angular.forEach(PackingItems.all(), function(value, key){
-    if (value.eventId == $scope.event.id)
-    {
-      $scope.event.packingList.push(value)
-    }
+.controller('EventCtrl', function($scope, Events, $stateParams, $ionicPopup) {
+  Events.then(function(result) {
+    $scope.events = result["parties"]
+    angular.forEach($scope.events, function(value,key){
+      if(value.id == $stateParams.eventId){
+        $scope.event = value
+      }
+    })
+
+    angular.forEach($scope.event.party_invitations, function(value,key){
+      if(value.host === true){
+        angular.forEach($scope.event.party_users, function(user,key){
+          if(value.host == user.id){
+            $scope.host = user
+            console.log(user)
+          }
+        })
+      }
+      // console.log(value)
+    })
+
+
   })
+  // // $scope.event.packingList = []
+  // // angular.forEach(PackingItems.all(), function(value, key){
+  // //   if (value.eventId == $scope.event.id)
+  // //   {
+  // //     $scope.event.packingList.push(value)
+  // //   }
+  // // })
 })
 
 .controller('AccountCtrl', function($scope) {

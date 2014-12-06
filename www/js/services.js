@@ -13,7 +13,6 @@ angular.module('starter.services', [])
       url: "http://partysweet-api.herokuapp.com/api/parties"
     }).success(function(data) {
       events = data;
-      console.log(data)
       return eventsDeferred.resolve(events);
     });
   } else {
