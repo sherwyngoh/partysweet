@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller("newEventCtrl", function($scope){
-	
+	$scope.events = {}
 })
 
 .controller('ContactsCtrl', function($scope){
