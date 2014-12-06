@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
 
 .controller('EventsCtrl', function($scope, Events, $state) {
   $scope.events = Events.all();
-  
+
   $scope.goToEvent = function(eventId) {
     $state.go('event', {"eventId": eventId} )
   }
@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('EventCtrl', function($scope, $stateParams, Events) {
+.controller('EventCtrl', function($scope, $stateParams, Events, PackingItems) {
   $scope.event = Events.get($stateParams.eventId);
 })
 

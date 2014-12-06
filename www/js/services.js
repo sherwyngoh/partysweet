@@ -23,4 +23,30 @@ angular.module('starter.services', [])
       return events[eventId];
     }
   }
-});
+})
+
+.factory('PackingItems', function(){
+  var packingListItems =[
+    {id: 0, eventId: 1, itemName: "Pepperoni Pizza", QuantityPerPerson: 1, PricePerPerson: 12, totalAmt: 0},
+    {id: 0, eventId: 2, itemName: "Pepperoni Pizza", QuantityPerPerson: 1, PricePerPerson: 12, totalAmt: 0},
+    {id: 0, eventId: 3, itemName: "Pepperoni Pizza", QuantityPerPerson: 1, PricePerPerson: 12, totalAmt: 0}, 
+    {id: 0, eventId: 1, itemName: "Pepperoni Pizza", QuantityPerPerson: 1, PricePerPerson: 12, totalAmt: 0},
+    {id: 0, eventId: 2, itemName: "Pepperoni Pizza", QuantityPerPerson: 1, PricePerPerson: 12, totalAmt: 0},
+  ];
+
+  return {
+    all: function() {
+      return packingListItems;
+    },
+
+    get: function(packingItemId){
+      return packingListItems[packingItemId];
+    }
+  }
+
+})
+
+
+
+
+;
