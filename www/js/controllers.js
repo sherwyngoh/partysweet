@@ -18,7 +18,10 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('EventCtrl', function($scope, $stateParams, Events, PackingItems, $ionicPopup) {
+.controller('EventCtrl', function($scope, $stateParams, Events, PackingItems, $ionicPopup, $state) {
+  $scope.goToEvents = function() {
+    $state.go('events')
+  }
   $scope.event = Events.get($stateParams.eventId);
   $scope.event.packingList = []
   angular.forEach(PackingItems.all(), function(value, key){

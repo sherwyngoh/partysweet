@@ -1,15 +1,19 @@
 
 <ion-view title="{{event.title}}">
-<ion-nav-buttons side="right">
-</ion-nav-buttons>
+
 <ion-content has-header="true" >
+<button  class="back-btn button button-icon icon ion-chevron-left " ng-click="goToEvents()"></button>
 <div class="image-caption" style='background: url("{{event.img}}") no-repeat; background-size: 100% 100%; border-bottom: 1px solid #808080'></div>
   <p class="event-tag-line">Come Join us and Rave Like Bananas!</p>
 
-<div class="item item-avatar no-border host-panel">
-  <img class="host-image" src="mcfly.jpg">
-  <p class="hosted-text">Hosted By</p>
-  <h2 class="host-name">Marty McFly</h2>
+<div class="item no-border host-panel">
+  <div class="centered">
+    <img class="host-image" src="mcfly.jpg">
+  </div>
+  <div class="centered">
+    <p class="hosted-text">Hosted By</p>
+    <h2 class="host-name">Marty McFly</h2>
+  </div>
 </div>
 
 <div class="item item-body no-border">

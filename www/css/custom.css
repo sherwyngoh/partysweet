@@ -28,3 +28,7 @@
   display: inline;
   text-align: center;
 }
+.back-btn{
+  margin: 5px 10px !important;
+  z-index: 999;
+}
