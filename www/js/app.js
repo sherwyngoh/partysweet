@@ -83,6 +83,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       controller: "EventsCtrl"
     })
 
+    .state('event', {
+      url: "/events/:eventId",
+      templateUrl: "templates/event.html",
+      controller: "EventCtrl"
+    })
+
     .state('newEvent', {
       url: "/new_event",
       views: {
