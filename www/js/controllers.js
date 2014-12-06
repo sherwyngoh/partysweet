@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller("NewEventCtrl", function($scope, $ionicModal,$filter,$state){
-  $scope.contacts = JSON.parse(window.localStorage['contacts'] || {})
+  $scope.contacts = JSON.parse(window.localStorage['contacts'] || "[]")
   $scope.goToContacts = function(){
     $state.go('contacts')  
   }
