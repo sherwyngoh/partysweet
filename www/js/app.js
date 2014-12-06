@@ -94,7 +94,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       templateUrl: "templates/new_event.html",
       controller: "NewEventCtrl"
     })
-    .state('newEvent.contacts', {
+    .state('contacts', {
       url: "/contacts",
       templateUrl: "templates/contacts.html",
       controller: "ContactsCtrl"
