@@ -24,6 +24,10 @@ angular.module('starter.controllers', [])
 	]
 })
 
+.controller("EventCtrl",function($scope) {
+
+})
+
 .controller("newEventCtrl", function($scope){
 	
 })
