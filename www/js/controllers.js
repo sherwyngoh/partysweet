@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
 
 .controller("NewEventCtrl", function($scope, $ionicModal,$filter,$state){
 	$scope.contacts = function(){
-    $state.go('newEvent.contacts')  
+    $state.go('contacts')  
   }
 	$scope.event = {}
 
@@ -39,30 +39,6 @@ angular.module('starter.controllers', [])
 		window.localStorage['newEvent'] = JSON.stringify(event)
 		console.log(window.localStorage['newEvent'])
 	}
-
- 	$scope.showDatePicker = function() {
-	  $ionicPlatform.ready(function() {
-			var options = {date: new Date(), mode: 'date'};
-		  //var options = {date: new Date(), mode: 'time'}; for time
-		  $cordovaDatePicker.show(options).then(function(date){
-		     console.log(date)
-		  });
-		});
- 	}
- 	//Datepicker shit
-	$scope.rightButtons = [
-	   { 
-	     type: 'button-positive',  
-	    content: '<i class="icon ion-navicon"></i>',
-	     tap: function(e) {
-	         $scope.date = null;
-	         $scope.modal.scope.model = {description :"",amount :""};
-	         $scope.openModal();
-	         
-	     }
-	   }
-   ]
-
 
 	$ionicModal.fromTemplateUrl('templates/modal.html', 
    function(modal) {
@@ -100,11 +76,14 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ContactsCtrl', function($scope, $cordovaContacts, $state){
-	$scope.event = JSON.parse(window.localStorage['newEvent'] || '{}')
-	$scope.saveContact = function(model){
-	}
- 	console.log(navigator.contacts);
+.controller('ContactsCtrl', function($scope, $state) {
+
+  document.addEventListener("deviceready", onDeviceReady, false);
+
+  function onDeviceReady() {
+    console.log(navigator.contacts);
+    $scope.contacts = navigator.contacts
+  }
 
 })
 

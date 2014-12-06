@@ -1,20 +1,11 @@
-<ion-view title="Events">
-  <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-plus" ></button>
+<ion-view title="Add Contacts">
+  <ion-nav-buttons side="left">
+  <ion-nav-back-button class="button-clear">
+    <i class="ion-arrow-left-c"></i> Back
+  </ion-nav-back-button>
   </ion-nav-buttons>
 <ion-content has-header="true" >
  <div class="list">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Party Title</span>
-        <input type="text" placeholder="Party Title" ng-model="event.title">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Description</span>
-        <input type="text" placeholder="Description" ng-model="event.description">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Party Date</span>
-        <input type="text" placeholder="Party Date" ng-model="event.formatted_date" ng-click='openDateModal()'>
-      </label>
-    </div>
+ {{contacts}}
+  </div>
 </ion-content>
