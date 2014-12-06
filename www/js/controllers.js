@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 })
 
-.controller("EventsCtrl", function($scope) {
+.controller("EventsCtrl", function($scope, $state) {
 	$scope.events = [
 		{id: 0, title: "Party Apocalypso", description: "Amazing party", location: "Clark Quay"},
 		{id: 1, title: "Masquerade Exotica", description: "Mind blowing party", location: "Orchard Road"},
@@ -22,9 +22,13 @@ angular.module('starter.controllers', [])
 		{id: 3, title: "Vodka Tsunami", description: "Whooosh", location: "Carlton Hotel"},
 		{id: 4, title: "House Vibrations", description: "mmmmmmmmmm", location: "Carlton Hotel"},
 	]
+	$scope.contacts = function(){
+		$state.go('newEvent.contacts')	
+	}
+	
 })
 
-.controller("newEventCtrl", function($scope){
+.controller("NewEventCtrl", function($scope){
 	$scope.events = {}
 })
 
