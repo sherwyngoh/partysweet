@@ -14,7 +14,6 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 })
 
-
 .controller("EventsCtrl", function($scope) {
 	$scope.events = [
 		{title: "Party Apocalypso", description: "Amazing party", location: "Clark Quay"},
@@ -30,3 +29,14 @@ angular.module('starter.controllers', [])
 })
 ;
 
+.controller('ContactsCtrl', function($scope){
+
+})
+
+.controller('PackingListCtrl', function($scope) {
+})
+
+
+
+
+;

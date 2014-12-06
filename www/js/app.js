@@ -89,6 +89,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: "templates/new_event.html",
         controller: "newEventCtrl"
       }
+    })
+
+    .state('tab.messages', {
+      url: 'event/:eventId/messages',
+      views: {
+        'tab-contacts': {
+          templateUrl: 'templates/tab-contacts.html',
+          controller: 'ContactsCtrl'
+        }
+      }
+    });
+
+    .state('tab.packing-list', {
+      url: 'event/:eventId/packing_list',
+      views: {
+        'tab-packing': {
+          templateUrl: 'templates/tab-packing_list.html',
+          controller: 'PackingListCtrl'
+        }
+      }
     });
 
   // if none of the above states are matched, use this as the fallback
