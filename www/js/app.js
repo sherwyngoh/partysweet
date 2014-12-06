@@ -77,6 +77,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     });
 
+    .state('tab.contacts', {
+      url: 'event/:eventId/contacts',
+      views: {
+        'tab-contacts': {
+          templateUrl: 'templates/tab-contacts.html',
+          controller: 'ContactsCtrl'
+        }
+      }
+    });
+
+    .state('tab.packing-list', {
+      url: 'event/:eventId/packing_list',
+      views: {
+        'tab-packing': {
+          templateUrl: 'templates/tab-packing_list.html',
+          controller: 'PackingListCtrl'
+        }
+      }
+    });
+
+
+
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 

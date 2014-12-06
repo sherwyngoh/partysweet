@@ -12,4 +12,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
-});
+})
+
+.controller('ContactsCtrl', function($scope){
+
+})
+
+.controller('PackingListCtrl', function($scope) {
+})
+
+
+
+
+;
