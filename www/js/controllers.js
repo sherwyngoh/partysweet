@@ -9,12 +9,17 @@ angular.module('starter.controllers', [])
 
 .controller('EventCtrl', function($scope, $stateParams, Events) {
   $scope.event = Events.get($stateParams.eventId);
+	$scope.contacts = function(){
+		$state.go('newEvent.contacts')	
+	}
 })
 
 .controller('AccountCtrl', function($scope) {
 })
 
-.controller("newEventCtrl", function($scope){
+.controller("NewEventCtrl", function($scope){
+	$scope.events = {}
+
 })
 
 .controller('ContactsCtrl', function($scope){
