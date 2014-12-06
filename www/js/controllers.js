@@ -5,8 +5,13 @@ angular.module('starter.controllers', [])
 
 .controller('EventsCtrl', function($scope, Events, $state) {
   $scope.events = Events.all();
+  
   $scope.goToEvent = function(eventId) {
     $state.go('event', {"eventId": eventId} )
+  }
+
+  $scope.newEvent = function(){
+    $state.go('newEvent')  
   }
 })
 
@@ -17,7 +22,11 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 })
 
-.controller("newEventCtrl", function($scope){
+.controller("NewEventCtrl", function($scope){
+	$scope.contacts = function(){
+    $state.go('newEvent.contacts')  
+  }
+
 })
 
 .controller('ContactsCtrl', function($scope){

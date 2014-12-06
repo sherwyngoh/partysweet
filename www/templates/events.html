@@ -1,12 +1,11 @@
 <ion-view title="Events">
   <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-plus" ></button>
+    <button class="button button-icon icon ion-plus" ng-click="newEvent()"></button>
   </ion-nav-buttons>
   <ion-content has-header="true" >
   <ul class="list">
     <li class="item" ng-repeat="event in events" ng-click="goToEvent({{event.id}})">
-    {{event}}
+      {{event}}
     </li>
 	</ul>
-
   </ion-content>

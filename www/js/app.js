@@ -91,10 +91,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .state('newEvent', {
       url: "/new_event",
-      views: {
-        templateUrl: "templates/new_event.html",
-        controller: "newEventCtrl"
-      }
+      templateUrl: "templates/new_event.html",
+      controller: "NewEventCtrl"
+    })
+    .state('newEvent.contacts', {
+      url: "/contacts",
+      templateUrl: "templates/contacts.html",
+      controller: "ContactsCtrl"
     })
 
     .state('tab.messages', {
