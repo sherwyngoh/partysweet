@@ -21,6 +21,24 @@ angular.module('starter.services', [])
   return eventsDeferred.promise;
 })
 
+// .factory('Events', function($http, $q) {
+//     var events, eventsDeferred;
+//   eventsDeferred = $q.defer();
+//   events = void 0;
+//   if (events === void 0) {
+//     $http({
+//       method: "GET",
+//       url: "http://partysweet-api.herokuapp.com/api/parties"
+//     }).success(function(data) {
+//       events = data;
+//       return eventsDeferred.resolve(events);
+//     });
+//   } else {
+//     eventsDeferred.resolve(events);
+//   }
+//   return eventsDeferred.promise;
+// })
+
 
 
 .factory('Users', function(){
@@ -64,26 +82,26 @@ angular.module('starter.services', [])
 
 .factory("Contacts", function(){
   var contacts = [
-    {id: 0, name: "Dollie Carpenter", checked: false},
-    {id: 1, name: "Bernie Whistler", checked: false},
-    {id: 2, name: "Cammy Propes", checked: false},
-    {id: 3, name: "Hisako Heacock", checked: false},
-    {id: 4, name: "Marge Brummond", checked: false},
-    {id: 5, name: "Tressie Emling", checked: false},
-    {id: 6, name: "Darryl Bustos", checked: false},
-    {id: 7, name: "Adolfo Kash", checked: false},
-    {id: 8, name: "Julissa Bragan", checked: false},
-    {id: 9, name: "Bernetta Lafortune", checked: false},
-    {id: 10, name: "Joseph Wimer", checked: false},
-    {id: 11, name: "Ulrike Mcnaughton", checked: false},
-    {id: 12, name: "Loralee Gwinn", checked: false},
-    {id: 13, name: "Damion Gartner", checked: false},
-    {id: 14, name: "Penny Bone", checked: false},
-    {id: 15, name: "Stanton Pesina", checked: false},
-    {id: 16, name: "Denny Cowans", checked: false},
-    {id: 17, name: "Lynelle Julian", checked: false},
-    {id: 18, name: "Virgil Copp", checked: false},
-    {id: 19, name: "Odilia Gosser", checked: false},
+    {id: 0, name: "Dollie Carpenter", number: "1234566778", host: false, checked: false},
+    {id: 1, name: "Bernie Whistler", number: "1234566778", host: false,   checked: false},
+    {id: 2, name: "Cammy Propes", number: "1234566778", host: false,   checked: false},
+    {id: 3, name: "Hisako Heacock", number: "1234566778", host: false,   checked: false},
+    {id: 4, name: "Marge Brummond", number: "1234566778", host: false,   checked: false},
+    {id: 5, name: "Tressie Emling", number: "1234566778", host: false,   checked: false},
+    {id: 6, name: "Darryl Bustos", number: "1234566778", host: false,   checked: false},
+    {id: 7, name: "Adolfo Kash", number: "1234566778", host: false,   checked: false},
+    {id: 8, name: "Julissa Bragan", number: "1234566778", host: false,   checked: false},
+    {id: 9, name: "Bernetta Lafortune", number: "1234566778", host: false,   checked: false},
+    {id: 10, name: "Joseph Wimer", number: "1234566778", host: false,   checked: false},
+    {id: 11, name: "Ulrike Mcnaughton", number: "1234566778", host: false,   checked: false},
+    {id: 12, name: "Loralee Gwinn", number: "1234566778", host: false,   checked: false},
+    {id: 13, name: "Damion Gartner", number: "1234566778", host: false,   checked: false},
+    {id: 14, name: "Penny Bone", number: "1234566778", host: false,   checked: false},
+    {id: 15, name: "Stanton Pesina", number: "1234566778", host: false,   checked: false},
+    {id: 16, name: "Denny Cowans", number: "1234566778", host: false,   checked: false},
+    {id: 17, name: "Lynelle Julian", number: "1234566778", host: false,   checked: false},
+    {id: 18, name: "Virgil Copp", number: "1234566778", host: false,   checked: false},
+    {id: 19, name: "Odilia Gosser", number: "1234566778", host: false,   checked: false},
     // {"Crissy Vannest"},
     // {"Carlee Mcsween"},
     // {"Brandee Bronstein"},
