@@ -135,7 +135,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
 
     .state('payment', {
-      url: 'event/:eventId/payment',
+      url: '/payment',
       templateUrl: 'templates/payment.html',
       controller: "PaymentCtrl"
     })

@@ -1,6 +1,14 @@
 <!-- {{event.title}} -->
-<ion-view title="">
+<ion-view title="Payment">
   <ion-nav-buttons side="left">
     <button class="button button-icon ion-chevron-left" ng-click="goToEvents()"></button>
   </ion-nav-buttons>
 <ion-content has-header="true" >
+	<form id="checkout" ng-submit="paymentProcessed()">
+	  <div id="dropin"></div>
+	  <div id="payment_method_nonce">
+	  <button class="button button-positive">
+	  	Make Payment
+	  </button>
+	</form>
+</ion-content>

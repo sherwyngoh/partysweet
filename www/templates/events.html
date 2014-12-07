@@ -7,11 +7,14 @@
       
     <a ng-click="goToEvent({{event.id}})" ng-repeat="event in events">
 
-      <div class="image-caption" style='background: url("{{event.img}}") no-repeat; background-size: 100% 100%'>
-      <p>{{event.title}}</p>
+      <div class="image-caption relative" style='background: url("{{event.img}}") no-repeat; background-size: 100% 100%'>
+        <div class="ribbon-bar">
+          <div class="title-text">{{event.title}}</div>
+        </div>
+        <img class="circle-image" src="img/empty-avatar-woman.jpg">
       <p>{{event.location}}</p>
     </div>
 
     </a>
-  </div>
+      </div>
   </ion-content>
