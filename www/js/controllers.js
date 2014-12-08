@@ -23,8 +23,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('EventCtrl', function($scope, Events, $stateParams, $ionicPopup, $state) {
-<<<<<<< HEAD
-=======
+
   $scope.showDetailsBool = true;
 
   $scope.showDetails = function(){
@@ -44,7 +43,6 @@ angular.module('starter.controllers', [])
     $scope.showMessagesBool = false;
     $scope.showDetailsBool = false;
   }
->>>>>>> a64d21646733b0055987622f66887f91e3fa5c10
 
   $scope.goToEvents = function() {
     $state.go('events')
@@ -190,44 +188,27 @@ $scope.contactsCount = invited.length
   });
 })
 
-.controller('PaymentCtrl', function($scope, $state, $stateParams) {
+.controller('PaymentCtrl', function($scope, $state, $stateParams, $rootScope, $http) {
   var braintreeToken = "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiIxYjc0NDI3NjkwZTg0ODZiN2I4MzBkMjMxOWUwZTBjMTE5YTM1MDE3ZjBmNjdjNDFlMjNiODAzZmU0YjUzZjNkfGNyZWF0ZWRfYXQ9MjAxNC0xMi0wNlQyMzoxNjowMi4yNDMyMTUwNjQrMDAwMFx1MDAyNm1lcmNoYW50X2lkPXY2eWh0N25tYzhkNm12dzJcdTAwMjZwdWJsaWNfa2V5PTR5dnRzNnluaDZ2d2JzZ3kiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvdjZ5aHQ3bm1jOGQ2bXZ3Mi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwicGF5bWVudEFwcHMiOltdLCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvdjZ5aHQ3bm1jOGQ2bXZ3Mi9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhbmFseXRpY3MiOnsidXJsIjoiaHR0cHM6Ly9jbGllbnQtYW5hbHl0aWNzLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20ifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6ZmFsc2UsInBheXBhbEVuYWJsZWQiOnRydWUsInBheXBhbCI6eyJkaXNwbGF5TmFtZSI6IlBBUlRZU1dFRVQiLCJjbGllbnRJZCI6bnVsbCwicHJpdmFjeVVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS9wcCIsInVzZXJBZ3JlZW1lbnRVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vdG9zIiwiYmFzZVVybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9jaGVja291dC5wYXlwYWwuY29tIiwiZGlyZWN0QmFzZVVybCI6bnVsbCwiYWxsb3dIdHRwIjp0cnVlLCJlbnZpcm9ubWVudE5vTmV0d29yayI6dHJ1ZSwiZW52aXJvbm1lbnQiOiJvZmZsaW5lIiwibWVyY2hhbnRBY2NvdW50SWQiOiI3MnRmeXlja3E2bnhkanI1IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn0sImNvaW5iYXNlRW5hYmxlZCI6ZmFsc2UsIm1lcmNoYW50SWQiOiJ2NnlodDdubWM4ZDZtdncyIiwidmVubW8iOiJvZmYifQ=="
-
+  $scope.lol = 0
   braintree.setup(braintreeToken, 'dropin', {
     container: 'dropin',
-    paymentMethodNonceInputField: 'nonce'
-  });
+    paymentMethodNonceReceived: function (event, nonce) {
+    $scope.lol = nonce
+        $scope.paymentProcessed = function() {
 
+    $http.post('https://partysweet-api.herokuapp.com/api/parties/pay', {nonce: nonce,price:  10 }).
+    success(function(data, status, headers, config) {
+      // this callback will be called asynchronously
+      // when the response is available
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
 
-  $scope.paymentProcessed = function() {
   }
+    }
+  });
 })
-<<<<<<< HEAD
 ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-;
->>>>>>> a64d21646733b0055987622f66887f91e3fa5c10
